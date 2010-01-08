@@ -4,6 +4,7 @@
 
 require "rinda/ring"
 require "rinda/tuplespace"
+require "config"
 
 class Service
   def hello(ts)
@@ -14,8 +15,6 @@ end
 
 DRb.start_service
 
-BROADCAST = ["<broadcast>", "localhost"]
-PORT      = 6000
 
 
 service = Service.new
@@ -35,16 +34,3 @@ finger.lookup_ring(5) { |ts|
 #provider.provide
 
 gets
-
-=begin
-
-DRb.start_service(nil, Startup.new)
-p uri = DRb.uri
-
-port = 6000
-socket = UDPSocket.open()
-socket.setsockopt(Socket::SOL_SOCKET, Socket::SO_BROADCAST, true)
-socket.send(uri, 0, Socket::INADDR_BROADCAST, port)
-
-gets
-=end
