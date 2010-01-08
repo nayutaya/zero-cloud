@@ -5,6 +5,11 @@
 require "rinda/ring"
 require "rinda/tuplespace"
 require "config"
+require "queue_logger"
+
+logger = QueueLogger.new
+logger.info("hoge")
+exit
 
 class Manager
   def initialize(port)
