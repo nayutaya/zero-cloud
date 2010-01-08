@@ -13,7 +13,7 @@ finger.lookup_ring(5) { |ts|
   p ts
   p service = ts.read([:name, :ZeroCloud, DRbObject, nil])
   p service[2]
-  p service[2].hello
+  p service[2].ts
 }
 
 gets
