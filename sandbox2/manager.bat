@@ -1,0 +1,2 @@
+ruby manager.rb
+pause
